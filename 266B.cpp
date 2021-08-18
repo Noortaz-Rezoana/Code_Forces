@@ -2,29 +2,23 @@
 using namespace std;
 int main()
 {
-    int n,i,p,j,k;
+    int n,s,i,j;
     char temp;
-    cin>>n>>p;
+    cin>>n>>s;
     string a;
     cin>>a;
-    for(i=0;i<p;i++)
+        for(j=0;j<n && s>0;j++)
+        {
+            if(a[j]=='B' && a[j+1]=='G')
+            {
+                temp=a[j];
+                a[j]=a[j+1];;
+                a[j+1]=temp;
+                s--;
+            }
+        }
+    for(i=0;i<n;i++)
     {
-        int b[50]={0};
-        for(j=0;j<n;j++)
-        {
-            if(a[j]!='B')
-            {
-                b[j]=-1;
-            }
-        }
-        for(k=0;k<n;k++)
-        {
-            if(b[k]==0 && a[k]=='B' && a[k+1]=='G')
-            {
-                swap(a[k],a[k+1]);
-            }
-        }
+        cout<<a[i];
     }
-    cout<<a<<endl;
 }
-
